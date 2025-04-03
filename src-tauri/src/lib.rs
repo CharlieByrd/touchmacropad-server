@@ -1,7 +1,7 @@
 mod commands;
 mod server;
 use std::thread;
-use commands::my_custom_command;
+use commands::macros_command;
 
 
 
@@ -13,7 +13,7 @@ pub fn run() {
 
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![my_custom_command])
+        .invoke_handler(tauri::generate_handler![macros_command])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
